@@ -1,0 +1,61 @@
+name: RTL CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  simulate:
+    name: Compile & Simulate (iverilog)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install iverilog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y iverilog
+
+      - name: Lint — iverilog -Wall
+        run: |
+          echo "Running lint check..."
+          iverilog -g2012 -Wall -o /dev/null \
+            rtl/async_fifo.sv \
+            tb/tb_async_fifo.sv
+          echo "Lint passed."
+
+      - name: Compile
+        run: |
+          mkdir -p sim
+          iverilog -g2012 \
+            -o sim/sim.out \
+            rtl/async_fifo.sv \
+            tb/tb_async_fifo.sv
+          echo "Compilation successful."
+
+      - name: Simulate
+        run: |
+          cd sim && vvp sim.out | tee sim_log.txt
+          echo "--- Simulation output ---"
+          cat sim_log.txt
+
+      - name: Check results
+        run: |
+          if grep -q "ALL TESTS PASSED" sim/sim_log.txt; then
+            echo "✅ CI PASSED — All tests passed."
+          else
+            echo "❌ CI FAILED — Failures detected."
+            grep "FAIL\|TIMEOUT\|ERROR" sim/sim_log.txt || true
+            exit 1
+          fi
+
+      - name: Upload simulation log
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sim-log
+          path: sim/sim_log.txt
