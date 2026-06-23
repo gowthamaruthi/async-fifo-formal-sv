@@ -9,8 +9,6 @@
 Parameterized **dual-clock asynchronous FIFO** in SystemVerilog.  
 Gray-coded pointer CDC · SVA assertions · SymbiYosys formal verification.
 
-> **Interview context:** Async FIFO is the #1 design question in DV/RTL interviews. This repo demonstrates RTL coding, Clock Domain Crossing (CDC), SystemVerilog Assertions (SVA), and a formal proof — end to end.
-
 ---
 
 ## Features
