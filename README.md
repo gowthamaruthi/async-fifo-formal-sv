@@ -9,6 +9,8 @@
 Parameterized **dual-clock asynchronous FIFO** in SystemVerilog.  
 Gray-coded pointer CDC · SVA assertions · SymbiYosys formal verification.
 
+> **Interview context:** Async FIFO is the #1 design question in DV/RTL interviews. This repo demonstrates RTL coding, Clock Domain Crossing (CDC), SystemVerilog Assertions (SVA), and a formal proof — end to end.
+
 ---
 
 ## Features
@@ -52,7 +54,11 @@ wr_clk  wr_en  wr_data   │              │  rd_clk  rd_en  rd_data
 
 ## Simulation Results
 
-> Screenshot goes here after running (see How to Run below)
+### Waveform — FIFO filling (writes active, CDC handoff visible)
+![FIFO filling](docs/waveforms/waveform_filling.png)
+
+### Waveform — FIFO full flag asserted
+![FIFO full](docs/waveforms/waveform_full.png)
 
 ```
 ============================================================
@@ -87,11 +93,11 @@ wr_clk  wr_en  wr_data   │              │  rd_clk  rd_en  rd_data
 ```bash
 # macOS (Homebrew)
 brew install icarus-verilog
-brew install --cask gtkwave     # waveform viewer
-brew install verilator          # optional: lint check
+brew install surfer        # waveform viewer
+brew install verilator     # optional: lint check
 
 # Ubuntu / Debian
-sudo apt-get install iverilog gtkwave
+sudo apt-get install iverilog
 ```
 
 ### Simulate
@@ -105,9 +111,9 @@ bash sim/run.sh
 ### View Waveform
 
 ```bash
-gtkwave sim/dump.vcd
+surfer sim/dump.vcd
 ```
-Signals to add in GTKWave: `wr_clk`, `rd_clk`, `wr_en`, `rd_en`, `wr_data`, `rd_data`, `full`, `empty`
+Signals to add: `wr_clk`, `rd_clk`, `wr_en`, `rd_en`, `wr_data`, `rd_data`, `full`, `empty`, `wr_gray`, `wr_gray_sync`
 
 ### Formal Verification (SymbiYosys)
 
@@ -145,7 +151,9 @@ async-fifo-formal-sv/
 ├── formal/
 │   └── fifo.sby               ← SymbiYosys formal config
 ├── docs/
-│   └── waveforms/             ← GTKWave screenshots
+│   └── waveforms/             ← Simulation waveform screenshots
+│       ├── waveform_filling.png
+│       └── waveform_full.png
 ├── .github/
 │   └── workflows/
 │       └── ci.yml             ← GitHub Actions (compile + sim on push)
