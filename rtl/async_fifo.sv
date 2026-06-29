@@ -62,6 +62,10 @@ module async_fifo #(
     if (wr_en && !full)
       mem[wr_bin[ADDR_W-1:0]] <= wr_data;
 
+  // ── Read pointer declared here so the 2-FF synchronizer below can reference it
+  logic [PTR_W-1:0] rd_bin,     rd_gray;
+  logic [PTR_W-1:0] rd_bin_inc;
+
   // 2-FF synchronizer: rd_gray ──► write domain
   logic [PTR_W-1:0] rd_gray_q1, rd_gray_sync;
   always_ff @(posedge wr_clk or negedge wr_rst_n) begin
@@ -83,9 +87,6 @@ module async_fifo #(
   // ========================================================================
   // Read clock domain
   // ========================================================================
-
-  logic [PTR_W-1:0] rd_bin,     rd_gray;
-  logic [PTR_W-1:0] rd_bin_inc;
 
   assign rd_bin_inc = rd_bin + 1'b1;
 
