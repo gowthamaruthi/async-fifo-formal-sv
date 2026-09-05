@@ -1,0 +1,3 @@
+PASS rejected DEPTH=3: FATAL: /Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/rtl/async_fifo.sv:37: async_fifo: DEPTH must be power-of-2 and >= 4 (got 3)
+PASS rejected DEPTH=6: FATAL: /Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/rtl/async_fifo.sv:37: async_fifo: DEPTH must be power-of-2 and >= 4 (got 6)
+PASS rejected WIDTH=0: FATAL: /Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/rtl/async_fifo.sv:35: async_fifo: WIDTH must be >= 1

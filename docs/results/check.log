@@ -1,0 +1,18 @@
+- V e r i l a t i o n   R e p o r t: Verilator 5.048 2026-04-26 rev vUNKNOWN-built20260426
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.021 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.004 s (elab=0.000, cvt=0.002, bld=0.000); cpu 0.004 s on 1 threads; allocated 9.812 MB
+SEED=1 DEPTH=4 WIDTH=1 WR_HALF=3 RD_HALF=7 PHASE=0
+PASS accepted_writes=571 consumed=567 reset_discarded=4 rejected_writes=765 rejected_reads=55
+tb/tb_async_fifo.sv:87: $finish called at 12832000 (1ps)
+SEED=1 DEPTH=4 WIDTH=8 WR_HALF=7 RD_HALF=3 PHASE=0
+PASS accepted_writes=1281 consumed=1277 reset_discarded=4 rejected_writes=48 rejected_reads=1871
+tb/tb_async_fifo.sv:87: $finish called at 28000000 (1ps)
+SEED=1 DEPTH=8 WIDTH=17 WR_HALF=5 RD_HALF=5 PHASE=2
+PASS accepted_writes=1261 consumed=1253 reset_discarded=8 rejected_writes=78 rejected_reads=150
+tb/tb_async_fifo.sv:87: $finish called at 20588000 (1ps)
+SEED=1 DEPTH=16 WIDTH=32 WR_HALF=5 RD_HALF=5 PHASE=0
+PASS accepted_writes=1324 consumed=1308 reset_discarded=16 rejected_writes=47 rejected_reads=125
+tb/tb_async_fifo.sv:87: $finish called at 21231000 (1ps)
+SEED=1 DEPTH=32 WIDTH=8 WR_HALF=3 RD_HALF=5 PHASE=1
+PASS accepted_writes=965 consumed=933 reset_discarded=32 rejected_writes=442 rejected_reads=41
+tb/tb_async_fifo.sv:87: $finish called at 14432000 (1ps)

@@ -1,0 +1,194 @@
+SBY 17:52:04 [formal/fifo_prove] Removing directory '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_prove'.
+SBY 17:52:04 [formal/fifo_prove] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/rtl/async_fifo.sv' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_prove/src/async_fifo.sv'.
+SBY 17:52:04 [formal/fifo_prove] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/harness.sv' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_prove/src/harness.sv'.
+SBY 17:52:04 [formal/fifo_prove] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/properties.svh' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_prove/src/properties.svh'.
+SBY 17:52:04 [formal/fifo_prove] engine_0: smtbmc z3
+SBY 17:52:04 [formal/fifo_bmc] Removing directory '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_bmc'.
+SBY 17:52:04 [formal/fifo_bmc] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/rtl/async_fifo.sv' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_bmc/src/async_fifo.sv'.
+SBY 17:52:04 [formal/fifo_bmc] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/harness.sv' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_bmc/src/harness.sv'.
+SBY 17:52:04 [formal/fifo_bmc] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/properties.svh' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_bmc/src/properties.svh'.
+SBY 17:52:04 [formal/fifo_bmc] engine_0: smtbmc z3
+SBY 17:52:04 [formal/fifo_cover] Removing directory '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_cover'.
+SBY 17:52:04 [formal/fifo_cover] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/rtl/async_fifo.sv' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_cover/src/async_fifo.sv'.
+SBY 17:52:04 [formal/fifo_cover] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/harness.sv' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_cover/src/harness.sv'.
+SBY 17:52:04 [formal/fifo_cover] Copy '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/properties.svh' to '/Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/formal/fifo_cover/src/properties.svh'.
+SBY 17:52:04 [formal/fifo_cover] engine_0: smtbmc z3
+SBY 17:52:04 [formal/fifo_prove] base: starting process "cd formal/fifo_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:52:04 [formal/fifo_bmc] base: starting process "cd formal/fifo_bmc/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:52:04 [formal/fifo_cover] base: starting process "cd formal/fifo_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:52:04 [formal/fifo_prove] base: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_cover] base: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_bmc] base: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_prove] prep: starting process "cd formal/fifo_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:52:04 [formal/fifo_cover] prep: starting process "cd formal/fifo_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:52:04 [formal/fifo_bmc] prep: starting process "cd formal/fifo_bmc/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:52:04 [formal/fifo_cover] prep: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_prove] prep: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_cover] smt2: starting process "cd formal/fifo_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:52:04 [formal/fifo_prove] smt2: starting process "cd formal/fifo_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:52:04 [formal/fifo_bmc] prep: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_bmc] smt2: starting process "cd formal/fifo_bmc/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:52:04 [formal/fifo_cover] smt2: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_prove] smt2: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_cover] engine_0: starting process "cd formal/fifo_cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 80  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 17:52:04 [formal/fifo_bmc] smt2: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: starting process "cd formal/fifo_prove; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: starting process "cd formal/fifo_prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 12  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Solver: z3
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY 17:52:04 [formal/fifo_bmc] engine_0: starting process "cd formal/fifo_bmc; yosys-smtbmc -s z3 --presat --noprogress -t 22  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Reached cover statement in step 9 at harness.dut: properties.svh:47.7-47.36 (_witness_.check_cover_properties_svh_47_175)
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 8..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 8..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: ##   0:00:00  Status: passed
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 9..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_prove] engine_0.induction: Status returned by engine for induction: pass
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 9..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Solver: z3
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 10..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Reached cover statement in step 10 at harness.dut: properties.svh:44.7-44.18 (_witness_.check_cover_properties_svh_44_165)
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 10..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 11..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 11..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 11..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: ##   0:00:00  Status: passed
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY 17:52:04 [formal/fifo_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:52:04 [formal/fifo_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:52:04 [formal/fifo_prove] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY 17:52:04 [formal/fifo_prove] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY 17:52:04 [formal/fifo_prove] summary: engine_0 did not produce any traces
+SBY 17:52:04 [formal/fifo_prove] summary: successful proof by k-induction.
+SBY 17:52:04 [formal/fifo_prove] DONE (PASS, rc=0)
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Reached cover statement in step 12 at harness.dut: properties.svh:45.7-45.45 (_witness_.check_cover_properties_svh_45_166)
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 13..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 14..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 15..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 16..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 17..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 18..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 19..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 20..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Reached cover statement in step 20 at harness.dut: properties.svh:46.7-46.50 (_witness_.check_cover_properties_svh_46_170)
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 17:52:04 [formal/fifo_cover] engine_0: ##   0:00:00  Status: passed
+SBY 17:52:04 [formal/fifo_cover] engine_0: finished (returncode=0)
+SBY 17:52:04 [formal/fifo_cover] engine_0: Status returned by engine: pass
+SBY 17:52:04 [formal/fifo_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:52:04 [formal/fifo_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:52:04 [formal/fifo_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY 17:52:04 [formal/fifo_cover] summary: cover trace: formal/fifo_cover/engine_0/trace0.vcd
+SBY 17:52:04 [formal/fifo_cover] summary:   reached cover statement harness.dut._witness_.check_cover_properties_svh_47_175 at properties.svh:47.7-47.36 step 9
+SBY 17:52:04 [formal/fifo_cover] summary: cover trace: formal/fifo_cover/engine_0/trace1.vcd
+SBY 17:52:04 [formal/fifo_cover] summary:   reached cover statement harness.dut._witness_.check_cover_properties_svh_44_165 at properties.svh:44.7-44.18 step 10
+SBY 17:52:04 [formal/fifo_cover] summary: cover trace: formal/fifo_cover/engine_0/trace2.vcd
+SBY 17:52:04 [formal/fifo_cover] summary:   reached cover statement harness.dut._witness_.check_cover_properties_svh_45_166 at properties.svh:45.7-45.45 step 12
+SBY 17:52:04 [formal/fifo_cover] summary: cover trace: formal/fifo_cover/engine_0/trace3.vcd
+SBY 17:52:04 [formal/fifo_cover] summary:   reached cover statement harness.dut._witness_.check_cover_properties_svh_46_170 at properties.svh:46.7-46.50 step 20
+SBY 17:52:04 [formal/fifo_cover] DONE (PASS, rc=0)
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 17:52:04 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 17:52:05 [formal/fifo_bmc] engine_0: ##   0:00:01  Checking assumptions in step 13..
+SBY 17:52:05 [formal/fifo_bmc] engine_0: ##   0:00:01  Checking assertions in step 13..
+SBY 17:52:06 [formal/fifo_bmc] engine_0: ##   0:00:01  Checking assumptions in step 14..
+SBY 17:52:06 [formal/fifo_bmc] engine_0: ##   0:00:01  Checking assertions in step 14..
+SBY 17:52:07 [formal/fifo_bmc] engine_0: ##   0:00:03  Checking assumptions in step 15..
+SBY 17:52:07 [formal/fifo_bmc] engine_0: ##   0:00:03  Checking assertions in step 15..
+SBY 17:52:09 [formal/fifo_bmc] engine_0: ##   0:00:05  Checking assumptions in step 16..
+SBY 17:52:09 [formal/fifo_bmc] engine_0: ##   0:00:05  Checking assertions in step 16..
+SBY 17:52:13 [formal/fifo_bmc] engine_0: ##   0:00:08  Checking assumptions in step 17..
+SBY 17:52:13 [formal/fifo_bmc] engine_0: ##   0:00:08  Checking assertions in step 17..
+SBY 17:52:17 [formal/fifo_bmc] engine_0: ##   0:00:13  Checking assumptions in step 18..
+SBY 17:52:17 [formal/fifo_bmc] engine_0: ##   0:00:13  Checking assertions in step 18..
+SBY 17:52:26 [formal/fifo_bmc] engine_0: ##   0:00:22  Checking assumptions in step 19..
+SBY 17:52:27 [formal/fifo_bmc] engine_0: ##   0:00:22  Checking assertions in step 19..
+SBY 17:52:38 [formal/fifo_bmc] engine_0: ##   0:00:33  Checking assumptions in step 20..
+SBY 17:52:38 [formal/fifo_bmc] engine_0: ##   0:00:33  Checking assertions in step 20..
+SBY 17:52:54 [formal/fifo_bmc] engine_0: ##   0:00:50  Checking assumptions in step 21..
+SBY 17:52:54 [formal/fifo_bmc] engine_0: ##   0:00:50  Checking assertions in step 21..
+SBY 17:53:09 [formal/fifo_bmc] engine_0: ##   0:01:05  Status: passed
+SBY 17:53:09 [formal/fifo_bmc] engine_0: finished (returncode=0)
+SBY 17:53:09 [formal/fifo_bmc] engine_0: Status returned by engine: pass
+SBY 17:53:09 [formal/fifo_bmc] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:05 (65)
+SBY 17:53:09 [formal/fifo_bmc] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:05 (65)
+SBY 17:53:09 [formal/fifo_bmc] summary: engine_0 (smtbmc z3) returned pass
+SBY 17:53:09 [formal/fifo_bmc] summary: engine_0 did not produce any traces
+SBY 17:53:09 [formal/fifo_bmc] DONE (PASS, rc=0)
