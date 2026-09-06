@@ -1,6 +1,6 @@
 # Asynchronous FIFO: RTL and verification
 
-A dual-clock, first-word-fall-through FIFO in SystemVerilog. Binary pointers address storage; registered Gray pointers cross through two-stage synchronizers. This repository contains a runnable simulation regression, local transition proofs, bounded data-safety checks, and reachable formal covers.
+My dual-clock, first-word-fall-through FIFO project in SystemVerilog. Binary pointers address storage; registered Gray pointers cross through two-stage synchronizers. I use a runnable simulation regression, local transition proofs, bounded data-safety checks, and reachable formal covers to check the design.
 
 ## Interface contract
 
@@ -30,7 +30,7 @@ The extra pointer bit distinguishes wraparound. Only accepted operations advance
 
 ## Run
 
-Tested locally on Apple Silicon: Icarus Verilog **13.0**, Verilator **5.048**, Yosys **0.66**, Z3 **4.16.0**, Python **3.9.6**. SBY source is pinned to `b1a1e98cba941ec8433f8dc27f416cd7bb7f14be`; its Python dependency is Click **8.1.8**. Homebrew versions can move; these are tested versions, not a hermetic toolchain lock.
+My tested local setup on Apple Silicon: Icarus Verilog **13.0**, Verilator **5.048**, Yosys **0.66**, Z3 **4.16.0**, Python **3.9.6**. SBY source is pinned to `b1a1e98cba941ec8433f8dc27f416cd7bb7f14be`; its Python dependency is Click **8.1.8**. Homebrew versions can move; these are tested versions, not a hermetic toolchain lock.
 
 ```sh
 brew install icarus-verilog verilator yosys z3
@@ -63,7 +63,7 @@ Logs go to `build/` or `formal/fifo_*/`. To obtain simulation waveforms, rerun a
 | Reachability (`cover`) | Full, subsequent drain, write-pointer wrap, both domains active | All four reached; latest at step 20 |
 | Mutation | Complement read data in a temporary DUT | Simulation failed with exit 1; formal generated a counterexample |
 
-The scoreboard uses separate monotonic write/read indices, avoiding concurrent queue mutation. Each ordinary drain requires all expected data consumed. Supported flushes explicitly account for discarded entries rather than silently clearing expectations. Two deterministic per-domain PRNG streams avoid coincident-edge seed races.
+I use separate monotonic write/read indices in the scoreboard to avoid concurrent queue mutation. Each ordinary drain requires all expected data consumed. Supported flushes explicitly account for discarded entries rather than silently clearing expectations. Two deterministic per-domain PRNG streams avoid coincident-edge seed races.
 
 ## Formal model and limitations
 
@@ -73,15 +73,15 @@ The harness initially holds both clocks low with common reset asserted, then rel
 
 ## CDC and implementation guidance
 
-Synchronizers reduce the risk of metastability propagation; they cannot guarantee “zero metastability.” `ASYNC_REG` attributes mark pointer synchronizers but do not replace placement and timing constraints. Constrain Gray source registers to first-stage destination registers with target-tool max-delay/bus-skew constraints derived from the fastest permitted source clock period. Review actual path collections and reports: broad asynchronous clock exceptions must not silently remove the intended bus constraint. Place synchronizer stages appropriately, analyze local-domain timing, and use synchronously released resets. No signoff SDC, MTBF calculation, routed result, or timing closure is claimed here.
+Synchronizers reduce the risk of metastability propagation; they cannot guarantee “zero metastability.” `ASYNC_REG` attributes mark pointer synchronizers but do not replace placement and timing constraints. Constrain Gray source registers to first-stage destination registers with target-tool max-delay/bus-skew constraints derived from the fastest permitted source clock period. Review actual path collections and reports: broad asynchronous clock exceptions must not silently remove the intended bus constraint. Place synchronizer stages appropriately, analyze local-domain timing, and use synchronously released resets. I haven't completed a signoff SDC, MTBF calculation, routed implementation or timing closure for this project.
 
 Verilator's `SYNCASYNCNET` warning is waived explicitly: write reset intentionally resets pointer/synchronizer flops asynchronously and gates the synchronous memory write enable. Other lint warnings remain fatal. Reset release timing remains an integration obligation.
 
 ## Bugs and baseline
 
-At base `dd4c16e66a4854fe7466773e999d973c6b8a9c19`, memory writes were enabled during reset. The repair gates writes with `wr_rst_n`; the directed reset test holds a request active and verifies storage does not change. The previous runner could print failure yet exit successfully; it now uses `set -euo pipefail` and fatal test failures. Sequential “interleaving” is replaced with concurrent drivers.
+At base `dd4c16e66a4854fe7466773e999d973c6b8a9c19`, memory writes were enabled during reset. I fixed this by gating writes with `wr_rst_n`. My directed reset test holds a request active and checks that storage does not change. The previous runner could print failure yet exit successfully; it now uses `set -euo pipefail` and fatal test failures. Sequential “interleaving” is replaced with concurrent drivers.
 
-The original formal configuration failed because it read `rtl/async_fifo.sv` after SBY staged `async_fifo.sv`. Its enable assertions also confused unconstrained environment requests with DUT guarantees. These have been replaced with an explicit harness and supported immediate assertions, not silently disabled.
+The original formal configuration failed because it read `rtl/async_fifo.sv` after SBY staged `async_fifo.sv`. Its enable assertions also confused unconstrained environment requests with DUT guarantees. I replaced these with an explicit harness and supported immediate assertions.
 
 The [baseline CI run](https://github.com/gowthamaruthi/async-fifo-formal-sv/actions/runs/28349549532) only simulated: it reported 66 checks and 40 sequential transfers. Historical screenshots are retained under `docs/waveforms/` as historical artifacts, not new verification evidence. Unsupported “all inputs” and metastability claims have been removed.
 
