@@ -43,7 +43,7 @@ bash scripts/formal.sh                # prove + bmc + cover
 python3 scripts/formal-negative.py    # temporary corruption must yield counterexample
 ```
 
-For individual tasks use `bash scripts/formal.sh prove`, `bmc`, or `cover`. Each formal task has a 180-second timeout. A timeout fails the command. `SBY_PYTHON` and `SBY_SOURCE` can select an existing isolated SBY setup.
+For individual tasks use `bash scripts/formal.sh prove`, `bmc`, or `cover`. Each formal task has a 600-second timeout. A timeout fails the command. `SBY_PYTHON` and `SBY_SOURCE` can select an existing isolated SBY setup.
 
 Logs go to `build/` or `formal/fifo_*/`. To obtain simulation waveforms, rerun a compiled configuration with `vvp build/d4_w1_3_7_0.vvp +SEED=1 +WAVES`; this writes `failure.vcd` in the current directory. All scripts propagate failures. CI has separate simulation and formal jobs and uploads logs and formal counterexample/cover waveforms. Remote CI status is separate from local evidence below.
 

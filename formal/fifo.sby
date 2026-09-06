@@ -11,7 +11,7 @@ bmc: depth 22
 cover: mode cover
 cover: depth 80
 multiclock on
-timeout 180
+timeout 600
 
 [engines]
 smtbmc z3

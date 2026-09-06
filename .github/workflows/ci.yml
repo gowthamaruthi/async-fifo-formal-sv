@@ -1,5 +1,8 @@
 name: FIFO verification
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
 jobs:
   simulation:
     runs-on: macos-15
@@ -14,7 +17,9 @@ jobs:
         if: always()
         with:
           name: simulation-logs
-          path: build/*.log
+          path: |
+            build/*.log
+            build/*.vcd
   formal:
     runs-on: macos-15
     timeout-minutes: 15

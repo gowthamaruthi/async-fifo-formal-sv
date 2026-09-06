@@ -10,5 +10,11 @@ for config in '4 1 3 7 0' '4 8 7 3 0' '8 17 5 5 2' '16 32 5 5 0' '32 8 3 5 1'; d
     -Ptb_async_fifo.WIDTH="$width" -Ptb_async_fifo.WR_HALF="$wr" \
     -Ptb_async_fifo.RD_HALF="$rd" -Ptb_async_fifo.RD_PHASE="$phase" \
     -o "build/$tag.vvp" rtl/async_fifo.sv tb/tb_async_fifo.sv
-  vvp "build/$tag.vvp" +SEED="$seed" | tee "build/$tag.log"
+  if vvp "build/$tag.vvp" +SEED="$seed" | tee "build/$tag.log"; then
+    :
+  else
+    (cd build; vvp "$tag.vvp" +SEED="$seed" +WAVES > "$tag.failure.log" 2>&1) || true
+    if [[ -f build/failure.vcd ]]; then mv build/failure.vcd "build/$tag.failure.vcd"; fi
+    exit 1
+  fi
 done
