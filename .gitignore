@@ -1,0 +1,8 @@
+build/
+sim/*.out
+sim/*.vcd
+sim/*log.txt
+formal/fifo_*/
+__pycache__/
+failure.vcd
+formal/fifo/

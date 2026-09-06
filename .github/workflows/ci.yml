@@ -1,61 +1,40 @@
-name: RTL CI
-
+name: FIFO verification
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
-    branches: ["main"]
-
 jobs:
-  simulate:
-    name: Compile & Simulate (iverilog)
-    runs-on: ubuntu-latest
-
+  simulation:
+    runs-on: macos-15
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install iverilog
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y iverilog
-
-      - name: Lint — iverilog -Wall
-        run: |
-          echo "Running lint check..."
-          iverilog -g2012 -Wall -o /dev/null \
-            rtl/async_fifo.sv \
-            tb/tb_async_fifo.sv
-          echo "Lint passed."
-
-      - name: Compile
-        run: |
-          mkdir -p sim
-          iverilog -g2012 \
-            -o sim/sim.out \
-            rtl/async_fifo.sv \
-            tb/tb_async_fifo.sv
-          echo "Compilation successful."
-
-      - name: Simulate
-        run: |
-          cd sim && vvp sim.out | tee sim_log.txt
-          echo "--- Simulation output ---"
-          cat sim_log.txt
-
-      - name: Check results
-        run: |
-          if grep -q "ALL TESTS PASSED" sim/sim_log.txt; then
-            echo "✅ CI PASSED — All tests passed."
-          else
-            echo "❌ CI FAILED — Failures detected."
-            grep "FAIL\|TIMEOUT\|ERROR" sim/sim_log.txt || true
-            exit 1
-          fi
-
-      - name: Upload simulation log
-        uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      - run: brew install icarus-verilog verilator yosys
+      - run: bash scripts/check.sh
+      - run: SEED=20260905 bash sim/run.sh
+      - run: python3 scripts/parameters.py
+      - run: python3 scripts/negative.py
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: sim-log
-          path: sim/sim_log.txt
+          name: simulation-logs
+          path: |
+            build/*.log
+            build/*.vcd
+  formal:
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install yosys z3
+      - run: bash scripts/setup-formal.sh
+      - run: bash scripts/formal.sh
+      - run: python3 scripts/formal-negative.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: formal-logs-and-traces
+          path: |
+            formal/fifo_*/logfile.txt
+            formal/fifo_*/status
+            formal/fifo_*/engine_0/*.vcd
+            formal/fifo_*/engine_0/*.yw

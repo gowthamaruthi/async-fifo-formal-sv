@@ -1,29 +1,28 @@
-# =============================================================================
-# fifo.sby — SymbiYosys formal verification config for async_fifo
-# Usage   : sby -f formal/fifo.sby
-# Install : pip install symbiyosys yosys
-#   macOS : brew install yosys && pip install symbiyosys
-# =============================================================================
-# Proves:
-#   AST_NO_OVERFLOW  — wr_en never asserted while full=1
-#   AST_NO_UNDERFLOW — rd_en never asserted while empty=1
-#   AST_RST_EMPTY    — empty=1 immediately after reset
-# =============================================================================
-
 [tasks]
 prove
+bmc
 cover
 
 [options]
-mode prove
-depth 20
+prove: mode prove
+prove: depth 12
+bmc: mode bmc
+bmc: depth 22
+cover: mode cover
+cover: depth 80
+multiclock on
+timeout 600
 
 [engines]
-smtbmc
+smtbmc z3
 
 [script]
-read -formal rtl/async_fifo.sv
-prep -top async_fifo
+prove: read -formal -D LOCAL_ONLY async_fifo.sv harness.sv
+bmc: read -formal async_fifo.sv harness.sv
+cover: read -formal async_fifo.sv harness.sv
+prep -top harness
 
 [files]
 rtl/async_fifo.sv
+formal/harness.sv
+formal/properties.svh

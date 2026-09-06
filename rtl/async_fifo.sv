@@ -4,7 +4,7 @@
 // GitHub  : github.com/gowthamaruthi/async-fifo-formal-sv
 // Desc    : Parameterized dual-clock asynchronous FIFO with Gray-coded CDC.
 //           Combinational full/empty flags. Combinational read port.
-//           Simulation checks via always blocks; formal SVA via `ifdef FORMAL.
+//           Requests at full/empty are ignored. Coordinated reset required.
 // =============================================================================
 
 `timescale 1ns / 1ps
@@ -32,6 +32,7 @@ module async_fifo #(
   localparam int PTR_W  = ADDR_W + 1;    // pointer width (extra MSB = wrap bit)
 
   initial begin
+    if (WIDTH < 1) $fatal(1, "async_fifo: WIDTH must be >= 1");
     if (DEPTH < 4 || (DEPTH & (DEPTH - 1)) != 0)
       $fatal(1, "async_fifo: DEPTH must be power-of-2 and >= 4 (got %0d)", DEPTH);
   end
@@ -59,7 +60,7 @@ module async_fifo #(
   end
 
   always_ff @(posedge wr_clk)
-    if (wr_en && !full)
+    if (wr_rst_n && wr_en && !full)
       mem[wr_bin[ADDR_W-1:0]] <= wr_data;
 
   // ── Read pointer declared here so the 2-FF synchronizer below can reference it
@@ -67,7 +68,7 @@ module async_fifo #(
   logic [PTR_W-1:0] rd_bin_inc;
 
   // 2-FF synchronizer: rd_gray ──► write domain
-  logic [PTR_W-1:0] rd_gray_q1, rd_gray_sync;
+  (* ASYNC_REG = "TRUE" *) logic [PTR_W-1:0] rd_gray_q1, rd_gray_sync;
   always_ff @(posedge wr_clk or negedge wr_rst_n) begin
     if (!wr_rst_n) begin
       rd_gray_q1   <= '0;
@@ -104,7 +105,7 @@ module async_fifo #(
   assign rd_data = mem[rd_bin[ADDR_W-1:0]];
 
   // 2-FF synchronizer: wr_gray ──► read domain
-  logic [PTR_W-1:0] wr_gray_q1, wr_gray_sync;
+  (* ASYNC_REG = "TRUE" *) logic [PTR_W-1:0] wr_gray_q1, wr_gray_sync;
   always_ff @(posedge rd_clk or negedge rd_rst_n) begin
     if (!rd_rst_n) begin
       wr_gray_q1   <= '0;
@@ -118,39 +119,8 @@ module async_fifo #(
   // Empty: rd_gray equals synchronized wr_gray
   assign empty = (rd_gray == wr_gray_sync);
 
-  // ========================================================================
-  // Simulation-time violation monitors
-  // ========================================================================
-  // (Replaced by formal SVA when compiled with `define FORMAL for sby)
 
-`ifndef FORMAL
-  always @(posedge wr_clk)
-    if (wr_rst_n && wr_en && full)
-      $error("[%0t ns] RTL MONITOR: OVERFLOW — wr_en=1 while full=1", $time);
-
-  always @(posedge rd_clk)
-    if (rd_rst_n && rd_en && empty)
-      $error("[%0t ns] RTL MONITOR: UNDERFLOW — rd_en=1 while empty=1", $time);
-`endif
-
-  // ========================================================================
-  // Formal SVA assertions (SymbiYosys flow: compile with +define+FORMAL)
-  // ========================================================================
 `ifdef FORMAL
-  // Assume resets are released at some point
-  assume property (@(posedge wr_clk) !$isunknown(wr_rst_n));
-  assume property (@(posedge rd_clk) !$isunknown(rd_rst_n));
-
-  // No write when full
-  assert property (@(posedge wr_clk) disable iff (!wr_rst_n)
-    !(wr_en && full));
-
-  // No read when empty
-  assert property (@(posedge rd_clk) disable iff (!rd_rst_n)
-    !(rd_en && empty));
-
-  // Must start empty after reset
-  assert property (@(posedge rd_clk) $rose(rd_rst_n) |-> empty);
+`include "properties.svh"
 `endif
-
 endmodule

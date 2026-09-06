@@ -1,0 +1,10 @@
+SEED=1 DEPTH=4 WIDTH=8 WR_HALF=5 RD_HALF=7 PHASE=0
+FATAL: /Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/tb/tb_async_fifo.sv:37: order/data mismatch index=0 got=6e expected=91
+       Time: 343000  Scope: tb_async_fifo
+
+PASS: detected order/data mismatch ; simulator returned 1
+SEED=1 DEPTH=4 WIDTH=8 WR_HALF=5 RD_HALF=7 PHASE=0
+FATAL: /Users/gowthamkumarmaruthi/Documents/Codex/2026-09-05/act-as-my-senior-vlsi-engineering/work/async-fifo-formal-sv/tb/tb_async_fifo.sv:62: memory changed during reset
+       Time: 99000  Scope: tb_async_fifo.reset_both
+
+PASS: detected memory changed during reset ; simulator returned 1

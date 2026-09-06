@@ -1,0 +1,15 @@
+SEED=20260905 DEPTH=4 WIDTH=1 WR_HALF=3 RD_HALF=7 PHASE=0
+PASS accepted_writes=580 consumed=576 reset_discarded=4 rejected_writes=799 rejected_reads=42
+tb/tb_async_fifo.sv:87: $finish called at 12846000 (1ps)
+SEED=20260905 DEPTH=4 WIDTH=8 WR_HALF=7 RD_HALF=3 PHASE=0
+PASS accepted_writes=1328 consumed=1324 reset_discarded=4 rejected_writes=58 rejected_reads=1825
+tb/tb_async_fifo.sv:87: $finish called at 27988000 (1ps)
+SEED=20260905 DEPTH=8 WIDTH=17 WR_HALF=5 RD_HALF=5 PHASE=2
+PASS accepted_writes=1298 consumed=1290 reset_discarded=8 rejected_writes=96 rejected_reads=97
+tb/tb_async_fifo.sv:87: $finish called at 20598000 (1ps)
+SEED=20260905 DEPTH=16 WIDTH=32 WR_HALF=5 RD_HALF=5 PHASE=0
+PASS accepted_writes=1367 consumed=1351 reset_discarded=16 rejected_writes=51 rejected_reads=63
+tb/tb_async_fifo.sv:87: $finish called at 21181000 (1ps)
+SEED=20260905 DEPTH=32 WIDTH=8 WR_HALF=3 RD_HALF=5 PHASE=1
+PASS accepted_writes=971 consumed=939 reset_discarded=32 rejected_writes=474 rejected_reads=40
+tb/tb_async_fifo.sv:87: $finish called at 14432000 (1ps)

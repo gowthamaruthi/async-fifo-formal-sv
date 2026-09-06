@@ -1,0 +1,48 @@
+SBY 17:54:07 [formal/fifo_bmc] Removing directory '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/formal/fifo_bmc'.
+SBY 17:54:07 [formal/fifo_bmc] Copy '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/rtl/async_fifo.sv' to '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/formal/fifo_bmc/src/async_fifo.sv'.
+SBY 17:54:07 [formal/fifo_bmc] Copy '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/formal/harness.sv' to '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/formal/fifo_bmc/src/harness.sv'.
+SBY 17:54:07 [formal/fifo_bmc] Copy '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/formal/properties.svh' to '/private/var/folders/y3/168m2bds6c11hlfwjwd4bb4c0000gn/T/tmpxqbxi8up/formal/fifo_bmc/src/properties.svh'.
+SBY 17:54:07 [formal/fifo_bmc] engine_0: smtbmc z3
+SBY 17:54:07 [formal/fifo_bmc] base: starting process "cd formal/fifo_bmc/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 17:54:07 [formal/fifo_bmc] base: finished (returncode=0)
+SBY 17:54:07 [formal/fifo_bmc] prep: starting process "cd formal/fifo_bmc/model; yosys -ql design_prep.log design_prep.ys"
+SBY 17:54:07 [formal/fifo_bmc] prep: finished (returncode=0)
+SBY 17:54:07 [formal/fifo_bmc] smt2: starting process "cd formal/fifo_bmc/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 17:54:07 [formal/fifo_bmc] smt2: finished (returncode=0)
+SBY 17:54:07 [formal/fifo_bmc] engine_0: starting process "cd formal/fifo_bmc; yosys-smtbmc -s z3 --presat --noprogress -t 12  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Solver: z3
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  BMC failed!
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Value for anyconst harness.dut.watched (properties.svh:19.35-19.42): 0
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Assert failed in harness.dut: properties.svh:38.11-38.43 (_witness_.check_assert_properties_svh_38_160)
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 17:54:07 [formal/fifo_bmc] engine_0: ##   0:00:00  Status: failed
+SBY 17:54:07 [formal/fifo_bmc] engine_0: finished (returncode=1)
+SBY 17:54:07 [formal/fifo_bmc] engine_0: Status returned by engine: FAIL
+SBY 17:54:07 [formal/fifo_bmc] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:54:07 [formal/fifo_bmc] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 17:54:07 [formal/fifo_bmc] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 17:54:07 [formal/fifo_bmc] summary: counterexample trace: formal/fifo_bmc/engine_0/trace.vcd
+SBY 17:54:07 [formal/fifo_bmc] summary:   failed assertion harness.dut._witness_.check_assert_properties_svh_38_160 at properties.svh:38.11-38.43 step 7
+SBY 17:54:07 [formal/fifo_bmc] DONE (FAIL, rc=2)
+SBY 17:54:07 The following tasks failed: ['bmc']
+
+PASS: formal data corruption produced a counterexample
