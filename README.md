@@ -71,6 +71,10 @@ The harness initially holds both clocks low with common reset asserted, then rel
 
 `prove` intentionally selects **local transition properties only** using `LOCAL_ONLY`. The `bmc` and `cover` tasks retain the data/occupancy properties. A symbolic address tracks the last accepted write at any selected slot; occupancy bounds and sequential pointer properties connect slot integrity to FIFO order within the bounded horizon. There is no unbounded ordering proof, arbitrary-width proof, repeated-reset formal proof, liveness guarantee, or analog metastability proof. Initial local-clock formulations could not close induction with unconstrained paused clocks; global-step transition checks close induction without constraining clock progress. An exploratory 40-step bounded run was stopped for runtime; the supported bound is explicitly 22.
 
+## Structural crossing audit
+
+I check synchronizer wiring, destination resets and register-crossing dependencies with a [Yosys-netlist audit](docs/cdc-audit.md). Default and minimum configurations pass; five intentional structural defects are detected. The audit supplements simulation and formal checks and does not perform physical CDC/RDC signoff.
+
 ## CDC and implementation guidance
 
 Synchronizers reduce the risk of metastability propagation; they cannot guarantee “zero metastability.” `ASYNC_REG` attributes mark pointer synchronizers but do not replace placement and timing constraints. Constrain Gray source registers to first-stage destination registers with target-tool max-delay/bus-skew constraints derived from the fastest permitted source clock period. Review actual path collections and reports: broad asynchronous clock exceptions must not silently remove the intended bus constraint. Place synchronizer stages appropriately, analyze local-domain timing, and use synchronously released resets. I haven't completed a signoff SDC, MTBF calculation, routed implementation or timing closure for this project.
