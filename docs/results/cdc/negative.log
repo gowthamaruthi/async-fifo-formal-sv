@@ -1,0 +1,5 @@
+PASS rejected bypass: synchronizer bypass
+PASS rejected wrong_reset: wrong reset domain
+PASS rejected first_stage_fanout: stage-one fanout
+PASS rejected binary_crossing: input must be registered Gray pointer
+PASS rejected missing_attribute: missing ASYNC_REG

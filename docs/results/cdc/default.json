@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "chains": [
+    {
+      "source": "wr_gray",
+      "destination_clock": "rd_clk",
+      "stages": [
+        "wr_gray_q1",
+        "wr_gray_sync"
+      ],
+      "width": 5
+    },
+    {
+      "source": "rd_gray",
+      "destination_clock": "wr_clk",
+      "stages": [
+        "rd_gray_q1",
+        "rd_gray_sync"
+      ],
+      "width": 5
+    }
+  ],
+  "registered_crossings": 2,
+  "reset_contract": "Both domains flush together; external synchronous release required.",
+  "exclusions": [
+    "Shared memory data crossing: simulation and bounded formal check ordering.",
+    "External input timing, reset release, metastability, bus skew and physical reconvergence are not checked."
+  ],
+  "depth": 16,
+  "width": 8
+}
